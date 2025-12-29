@@ -32,8 +32,8 @@
 <script>
 function openPDF() {
   const n = document.getElementById("pdfNum").value;
-  if (n < 1 || n > 180) {
-    alert("شماره باید بین 1 تا 180 باشد");
+  if (n < 1 || n > 255) {
+    alert("شماره بایستی عددی بزگتر از صفر وارد شود");
     return;
   }
   window.open(`pdfs/${n}.pdf`, "_blank");
@@ -43,3 +43,4 @@ function openPDF() {
 </body>
 
 </html>
+
