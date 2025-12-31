@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مشاهده ویزا</title>
+<style>
+  body { margin:0; font-family: Tahoma, sans-serif; direction: rtl; display:flex; flex-direction:column; height:100vh; }
+  iframe { flex:1; width:100%; border:none; }
+  .download-btn { padding:10px 20px; background:#0b5d3b; color:white; border:none; font-size:16px; cursor:pointer; text-decoration:none; text-align:center; display:block; margin:5px auto; border-radius:6px; width:90%; max-width:300px; }
+</style>
+</head>
+<body>
+<iframe id="pdfFrame" src=""></iframe>
+<a id="downloadBtn" class="download-btn" href="" download>دانلود ویزا</a>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const pdf = params.get('file'); // نام فایل PDF
+  if(pdf){
+    const path = `pdfs/${pdf}`;
+    document.getElementById('pdfFrame').src = path;
+    document.getElementById('downloadBtn').href = path;
+  } else {
+    document.body.innerHTML = "<p>فایل PDF پیدا نشد!</p>";
+  }
+</script>
+</body>
+</html>
