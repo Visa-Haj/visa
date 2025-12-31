@@ -2,45 +2,122 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>مشاهده ویزا</title>
+  <title>مشاهده ویزا | کاروان حج 26062 کرمان</title>
+
   <style>
     body {
       direction: rtl;
-      font-family: sans-serif;
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      background: linear-gradient(to bottom, #f4f7f3, #e2eee6);
+      color: #1f3d2b;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: 60px auto;
+      background: #ffffff;
+      padding: 30px 25px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
       text-align: center;
-      margin-top: 80px;
     }
+
+    .logo img {
+      width: 140px;
+      margin-bottom: 15px;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #0b5d3b;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 25px;
+      line-height: 1.9;
+    }
+
     input {
+      width: 80%;
       font-size: 18px;
-      padding: 6px;
-      width: 120px;
+      padding: 10px;
+      text-align: center;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
     }
+
     button {
       font-size: 18px;
-      padding: 6px 16px;
+      padding: 10px 30px;
+      border-radius: 8px;
+      border: none;
       cursor: pointer;
+      background-color: #0b5d3b;
+      color: white;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #094d31;
+    }
+
+    .error {
+      color: #b00020;
+      margin-top: 10px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 13px;
+      color: #777;
+      line-height: 1.8;
     }
   </style>
 </head>
+
 <body>
 
-<h2>لطفا کد زائری خود را جهت مشاهده ویزا در کادر زیر وارد نمایید</h2>
+<div class="container">
 
-<input type="number" id="pdfNum" min="1" max="180">
-<button onclick="openPDF()">نمایش</button>
+  <!-- لوگوی کاروان -->
+  <div class="logo">
+    <img src="logo.png" alt="لوگوی کاروان حج 26062 کرمان">
+  </div>
 
-<script>
-function openPDF() {
-  const n = document.getElementById("pdfNum").value;
-  if (n < 1 || n > 255) {
-    alert("شماره بایستی عددی بزگتر از صفر وارد شود");
-    return;
-  }
-  window.open(`pdfs/${n}.pdf`, "_blank");
-}
-</script>
+  <div class="title">
+    مشاهده ویزای زائر
+  </div>
 
-</body>
+  <div class="subtitle">
+    کاروان حج تمتع <strong>26062 کرمان</strong><br>
+    مدیر کاروان: <strong>محمد ایزدی</strong><br>
+    لطفاً کد زائری خود را وارد نمایید
+  </div>
 
-</html>
+  <input
+    type="number"
+    id="pdfNum"
+    min="1"
+    max="180"
+    placeholder="کد زائری (۱ تا ۱۸۰)"
+    onkeypress="if(event.key==='Enter'){openPDF()}"
+  >
 
+  <br>
+
+  <button onclick="openPDF()">نمایش ویزا</button>
+
+  <div id="error" class="error">
+    لطفاً عددی معتبر بین ۱ تا ۱۸۰ وارد نمایید
+  </div>
+
+  <div class="footer">
+    🌙 التماس دعا<br>
