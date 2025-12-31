@@ -94,9 +94,9 @@ button:hover { background-color: #094d31; }
     لطفاً کد زائری خود را وارد نمایید
   </div>
 
-  <input type="number" id="pdfNum" min="1" max="180" placeholder="      " onkeypress="if(event.key==='Enter'){openPDF()}">
+  <input type="number" id="pdfNum" min="1" max="180" placeholder="              " onkeypress="if(event.key==='Enter'){openPDF()}">
   <br>
-  <button onclick="openPDF()">نمایش ویزا</button>
+  <button onclick="openPDF()">مشاهده ویزا</button>
   <div id="error" class="error">لطفاً عددی معتبر بین ۱ تا ۱۸۰ وارد نمایید</div>
 
   <div class="footer">🌙 التماس دعا</div>
@@ -114,12 +114,10 @@ function openPDF() {
 
   errorDiv.style.display = 'none';
 
-  // باز کردن viewer.html در تب جدید با فایل PDF
-  const viewerPath = `viewer.html?file=${pdfNum}.pdf`;
-  window.open(viewerPath, '_blank');
+  // باز کردن PDF مستقیم → Chrome اندروید بدون Open اضافی
+  window.location.href = `pdfs/${pdfNum}.pdf`;
 }
 </script>
 
 </body>
 </html>
-
