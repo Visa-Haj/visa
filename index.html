@@ -46,7 +46,7 @@ body {
   position: relative;
 }
 .title { font-size: 20px; font-weight: bold; color: #0b5d3b; margin-bottom: 6px; }
-.subtitle { font-size: 14px; color: #555; margin-bottom: 25px; line-height: 1.6; }
+.subtitle { font-size: 14px; color: #555; margin-bottom: 20px; line-height: 1.6; }
 input {
   width: 80%;
   font-size: 16px;
@@ -80,23 +80,20 @@ button:hover { background-color: #094d31; }
   display: none;
 }
 .footer { margin-top: 20px; font-size: 13px; color: #777; line-height: 1.8; }
-.pdf-container { margin-top: 20px; display:none; flex-direction: column; align-items: center; }
-.pdf-frame { width: 100%; height: 500px; border: 1px solid #ccc; border-radius: 8px; }
-.download-btn {
-  margin-top: 10px;
-  padding: 12px 20px;
+.download-link {
+  display: block;
+  margin-top: 15px;
+  font-size: 16px;
   background: #0b5d3b;
   color: white;
-  text-decoration: none;
-  font-size: 16px;
+  padding: 10px 20px;
   border-radius: 8px;
-  display: inline-block;
+  text-decoration: none;
 }
-.download-btn:hover { background: #094d31; }
+.download-link:hover { background: #094d31; }
 @media (max-width: 480px) {
   input { width: 90%; font-size: 15px; }
   button { font-size: 15px; padding: 10px 20px; }
-  .pdf-frame { height: 350px; }
 }
 </style>
 </head>
@@ -116,15 +113,12 @@ button:hover { background-color: #094d31; }
     لطفاً کد زائری خود را وارد نمایید
   </div>
 
-  <input type="number" id="pdfNum" min="1" max="180" placeholder="                " onkeypress="if(event.key==='Enter'){openPDF()}">
+  <input type="number" id="pdfNum" min="1" max="180" placeholder="              " onkeypress="if(event.key==='Enter'){openPDF()}">
   <br>
   <button onclick="openPDF()">نمایش ویزا</button>
   <div id="error" class="error">لطفاً عددی معتبر بین ۱ تا ۱۸۰ وارد نمایید</div>
 
-  <div class="pdf-container" id="pdfContainer">
-    <iframe class="pdf-frame" id="pdfFrame"></iframe>
-    <a id="downloadBtn" class="download-btn" href="" download>دانلود ویزا</a>
-  </div>
+  <a id="downloadLink" class="download-link" href="" target="_blank" style="display:none;">دانلود ویزا</a>
 
   <div class="footer">🌙 التماس دعا</div>
 </div>
@@ -133,26 +127,26 @@ button:hover { background-color: #094d31; }
 function openPDF() {
   const pdfNum = document.getElementById('pdfNum').value;
   const errorDiv = document.getElementById('error');
-  const pdfContainer = document.getElementById('pdfContainer');
-  const pdfFrame = document.getElementById('pdfFrame');
-  const downloadBtn = document.getElementById('downloadBtn');
+  const downloadLink = document.getElementById('downloadLink');
 
   if (!pdfNum || pdfNum < 1 || pdfNum > 180) {
     errorDiv.style.display = 'block';
-    pdfContainer.style.display = 'none';
+    downloadLink.style.display = 'none';
     return;
   }
 
   errorDiv.style.display = 'none';
 
   const pdfPath = `pdfs/${pdfNum}.pdf`;
-  pdfFrame.src = pdfPath;
-  downloadBtn.href = pdfPath;
-  pdfContainer.style.display = 'flex';
-  pdfContainer.scrollIntoView({ behavior: 'smooth' });
+
+  // باز کردن PDF مستقیم در تب جدید
+  window.open(pdfPath, '_blank');
+
+  // نمایش لینک دانلود زیر فرم
+  downloadLink.href = pdfPath;
+  downloadLink.style.display = 'block';
 }
 </script>
 
 </body>
 </html>
-
