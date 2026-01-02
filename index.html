@@ -3,113 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مشاهده ویزا | کاروان حج 26062 کرمان</title>
+<title>مشاهده ویزا | کاروان حج تمتع 26062 کرمان</title>
+
 <style>
 body {
   direction: rtl;
   margin: 0;
   font-family: Tahoma, sans-serif;
-  background: linear-gradient(to bottom, #f4f7f3, #e2eee6);
+  background: linear-gradient(180deg, #f4f7f3, #e2eee6);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 10px;
+  padding: 12px;
 }
+
 .container {
   width: 100%;
   max-width: 420px;
   background: #ffffff;
-  padding: 25px 20px 30px 20px;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  padding: 28px 20px 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   text-align: center;
-  position: relative;
-  overflow: hidden;
 }
-.logo-background {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140px;
-  height: 140px;
-  background: url('logo.png') no-repeat center center;
-  background-size: contain;
-  opacity: 0.15;
-  pointer-events: none;
-}
+
 .logo img {
   width: 120px;
   margin-bottom: 15px;
-  z-index: 2;
-  position: relative;
 }
-.title { font-size: 20px; font-weight: bold; color: #0b5d3b; margin-bottom: 6px; }
-.subtitle { font-size: 14px; color: #555; margin-bottom: 20px; line-height: 1.6; }
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0b5d3b;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 22px;
+  line-height: 1.7;
+}
+
 input {
-  width: 80%;
+  width: 85%;
   font-size: 16px;
-  padding: 10px;
+  padding: 11px;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #ccc;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   outline: none;
-  transition: 0.3s;
 }
-input:focus { border-color: #0b5d3b; box-shadow: 0 0 5px rgba(11,93,59,0.3); }
+
+input:focus {
+  border-color: #0b5d3b;
+  box-shadow: 0 0 6px rgba(11,93,59,0.25);
+}
+
 button {
+  width: 85%;
   font-size: 16px;
-  padding: 10px 25px;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
   background-color: #0b5d3b;
-  color: white;
+  color: #fff;
   transition: 0.3s;
 }
-button:hover { background-color: #094d31; }
-.error { color: #b00020; margin-top: 10px; font-size: 14px; display: none; }
+
+button:hover {
+  background-color: #094d31;
+}
+
 .download-btn {
   display: none;
-  margin-top: 15px;
-  padding: 12px 20px;
-  background: #0b5d3b;
-  color: white;
-  border-radius: 8px;
+  width: 85%;
+  margin-top: 14px;
+  padding: 12px;
+  background: #1b7f4d;
+  color: #fff;
+  border-radius: 10px;
   text-decoration: none;
   font-size: 16px;
 }
-.download-btn:hover { background: #094d31; }
-.footer { margin-top: 20px; font-size: 13px; color: #777; line-height: 1.8; }
+
+.download-btn:hover {
+  background: #145f3a;
+}
+
+.error {
+  margin-top: 14px;
+  color: #b00020;
+  font-size: 14px;
+  display: none;
+}
+
+.footer {
+  margin-top: 22px;
+  font-size: 13px;
+  color: #777;
+}
+
 @media (max-width: 480px) {
-  input { width: 90%; font-size: 15px; }
-  button { font-size: 15px; padding: 10px 20px; }
+  input, button, .download-btn {
+    width: 92%;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
-  <div class="logo-background"></div>
 
   <div class="logo">
     <img src="logo.png" alt="لوگوی کاروان حج 26062 کرمان">
   </div>
 
   <div class="title">مشاهده ویزای زائر</div>
+
   <div class="subtitle">
     کاروان حج تمتع <strong>26062 کرمان</strong><br>
     مدیر کاروان: <strong>محمد ایزدی</strong><br>
     لطفاً کد زائری خود را وارد نمایید
   </div>
 
-  <input type="number" id="pdfNum" min="1" max="180" placeholder="             " onkeypress="if(event.key==='Enter'){openPDF()}">
-  <br>
+  <input
+    type="number"
+    id="pdfNum"
+    placeholder="کد زائری"
+    onkeypress="if(event.key==='Enter'){openPDF()}"
+  >
+
   <button onclick="openPDF()">مشاهده ویزا</button>
-  <a id="downloadBtn" class="download-btn" href="" download>دانلود ویزا</a>
-  <div id="error" class="error">لطفاً عددی معتبر بین ۱ تا ۱۸۰ وارد نمایید</div>
+
+  <a id="downloadBtn" class="download-btn" href="" download>
+    📥 دانلود فایل ویزا
+  </a>
+
+  <div id="error" class="error"></div>
 
   <div class="footer">🌙 التماس دعا</div>
 </div>
@@ -121,7 +157,7 @@ function openPDF() {
   const downloadBtn = document.getElementById('downloadBtn');
 
   if (!pdfNum || pdfNum < 1 || pdfNum > 180) {
-    errorDiv.textContent = 'لطفاً عددی معتبر بین ۱ تا ۱۸۰ وارد نمایید';
+    errorDiv.textContent = 'کد زائری نامعتبر است';
     errorDiv.style.display = 'block';
     downloadBtn.style.display = 'none';
     return;
@@ -129,23 +165,21 @@ function openPDF() {
 
   const pdfPath = `pdfs/${pdfNum}.pdf`;
 
-  // بررسی وجود فایل با fetch
   fetch(pdfPath, { method: 'HEAD' })
-    .then(response => {
-      if(response.ok){
+    .then(res => {
+      if (res.ok) {
         errorDiv.style.display = 'none';
         downloadBtn.href = pdfPath;
-        downloadBtn.style.display = 'inline-block';
-        // باز کردن PDF
-        window.location.href = pdfPath;
+        downloadBtn.style.display = 'block';
+        window.open(pdfPath, '_blank');
       } else {
-        errorDiv.textContent = 'کد زائری اشتباه است!';
+        errorDiv.textContent = 'ویزایی با این کد یافت نشد';
         errorDiv.style.display = 'block';
         downloadBtn.style.display = 'none';
       }
     })
-    .catch(err => {
-      errorDiv.textContent = 'خطا در دسترسی به فایل PDF!';
+    .catch(() => {
+      errorDiv.textContent = 'خطا در دسترسی به فایل';
       errorDiv.style.display = 'block';
       downloadBtn.style.display = 'none';
     });
